@@ -1,7 +1,10 @@
+"use client";
+
 import { MouseEvent, useState } from "react";
 import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { PAGES } from "./constants";
+import Link from "next/link";
 
 export default function MobileTopNav() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -28,8 +31,10 @@ export default function MobileTopNav() {
         sx={{ display: { xs: "block", md: "none" } }}
       >
         {PAGES.map((page) => (
-          <MenuItem key={page} onClick={handleCloseNavMenu}>
-            <Typography textAlign="center">{page}</Typography>
+          <MenuItem key={page.label} onClick={handleCloseNavMenu}>
+            <Link href={page.href}>
+              <Typography textAlign="center">{page.label}</Typography>
+            </Link>
           </MenuItem>
         ))}
       </Menu>

@@ -1,3 +1,5 @@
+"use client";
+
 import { MouseEvent, useState } from "react";
 import {
   Box,
@@ -8,8 +10,8 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-
-const settings = ["My Child", "Account", "Logout"];
+import Link from "next/link";
+import { USER_MENU } from "./constants";
 
 export default function UserMenu() {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -26,7 +28,7 @@ export default function UserMenu() {
     <Box sx={{ flexGrow: 0 }}>
       <Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt="User Avatar" src="/static/images/avatar/2.jpg" />
+          <Avatar alt="User Avatar" />
         </IconButton>
       </Tooltip>
       <Menu
@@ -35,9 +37,11 @@ export default function UserMenu() {
         onClose={handleCloseUserMenu}
         sx={{ mt: "45px" }}
       >
-        {settings.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseUserMenu}>
-            <Typography textAlign="center">{setting}</Typography>
+        {USER_MENU.map((menu) => (
+          <MenuItem key={menu.href} onClick={handleCloseUserMenu}>
+            <Link href={menu.href}>
+              <Typography textAlign="center">{menu.label}</Typography>
+            </Link>
           </MenuItem>
         ))}
       </Menu>
