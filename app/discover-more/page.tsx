@@ -11,8 +11,8 @@ const ThisWeek = () => {
       <ChildHeader />
 
       <InfoRow>
-        <InfoBox topic={TopicKeys.Future_Developing} />
-        <InfoBox topic={TopicKeys.Future_StopTo} />
+        <InfoBox topic={TopicKeys.Drawing} />
+        <InfoBox topic={TopicKeys.Future_Drawing} />
       </InfoRow>
     </Box>
   );

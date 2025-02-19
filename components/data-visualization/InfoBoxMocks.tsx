@@ -57,7 +57,21 @@ export const TOPICS_BY_WEEKS = {
 `,
     dateObtained: `TODO`,
   },
-  [TopicKeys.LookingForwardsTo]: {
+  [TopicKeys.Drawing]: {
+    response: `<ul>
+    <li><strong>High-Contrast Doodles</strong>: Use black and white or bold colors on large paper to capture your baby's attention.</li>
+    <li><strong>Finger Painting</strong>: Use non-toxic, edible paints and let your child explore textures with their hands.</li>
+    <li><strong>Hand and Foot Prints</strong>: Press their hands and feet onto paper using safe, washable ink or paint.</li>
+    <li><strong>Sensory Drawing</strong>: Place paint inside a sealed plastic bag and let them press and move the colors without mess.</li>
+    <li><strong>Guided Crayon Holding</strong>: Assist them in gripping a thick, non-toxic crayon to make simple marks.</li>
+    <li><strong>Water Painting</strong>: Use a damp brush on colored paper to create temporary marks safely.</li>
+    <li><strong>Tummy Time Art</strong>: Tape a large sheet of paper to the floor and let them interact while on their tummy.</li>
+    <li><strong>Mirror Drawing</strong>: Let them observe themselves while you draw on a mirror with baby-safe markers.</li>
+</ul>
+`,
+    dateObtained: `TODO`,
+  },
+  [TopicKeys.Future_Developing]: {
     response: `<ul>
     <li><strong>Improved Head Control:</strong> Your baby will be able to hold their head steadier while sitting with support.</li>
     <li><strong>More Expressive Smiles:</strong> Expect more frequent and engaging social smiles in response to interactions.</li>
@@ -73,7 +87,7 @@ export const TOPICS_BY_WEEKS = {
 `,
     dateObtained: `TODO`,
   },
-  [TopicKeys.StopTo]: {
+  [TopicKeys.Future_StopTo]: {
     response: `<ul>
     <li><strong>Peekaboo and Simple Games:</strong> By age 4, children may find peekaboo and very simple games less exciting as their cognitive skills advance.</li>
     <li><strong>Soft Infant Toys:</strong> Plush rattles and soft chew toys may no longer hold their interest as they seek more interactive and complex playthings.</li>
@@ -84,6 +98,19 @@ export const TOPICS_BY_WEEKS = {
     <li><strong>Crib Sleeping:</strong> Many children transition from cribs to toddler beds as they grow more independent.</li>
     <li><strong>Passive Watching:</strong> At 15 weeks, they may stare at moving objects, but by 4, they prefer interactive play over passive observation.</li>
     <li><strong>Being Carried Constantly:</strong> While infants love being held, older children prefer running and playing on their own.</li>
+</ul>`,
+    dateObtained: `TODO`,
+  },
+  [TopicKeys.Future_Drawing]: {
+    response: `<ul>
+    <li><strong>Choose Safe Materials</strong> - Use non-toxic, baby-safe crayons or finger paints.</li>
+    <li><strong>Large Paper Surface</strong> - Provide a big sheet of paper to encourage free movement.</li>
+    <li><strong>Supervised Play</strong> - Always watch to prevent accidental ingestion.</li>
+    <li><strong>Sensory Exploration</strong> - Let them feel textures like soft crayons and wet paint.</li>
+    <li><strong>Encourage Grasping</strong> - Help them hold chunky crayons to develop grip strength.</li>
+    <li><strong>Use High-Contrast Colors</strong> - Black, white, and primary colors are most engaging.</li>
+    <li><strong>Keep Sessions Short</strong> - Five-minute sessions to match short attention spans.</li>
+    <li><strong>Make It Fun</strong> - Praise effort, not outcome, to build confidence.</li>
 </ul>`,
     dateObtained: `TODO`,
   },
