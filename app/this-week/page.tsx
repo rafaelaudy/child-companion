@@ -20,12 +20,12 @@ const ThisWeek = () => {
       </Stack>
 
       <InfoRow>
-        <InfoBox topic={TOPIC_KEYS.ACTIVITIES} />
         <InfoBox topic={TOPIC_KEYS.DEVELOPING} />
+        <InfoBox topic={TOPIC_KEYS.ENJOYING} />
       </InfoRow>
 
       <InfoRow>
-        <InfoBox topic={TOPIC_KEYS.ENJOYING} />
+        <InfoBox topic={TOPIC_KEYS.ACTIVITIES} />
         <InfoBox topic={TOPIC_KEYS.TEACH} />
       </InfoRow>
     </Box>
