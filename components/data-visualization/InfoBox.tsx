@@ -2,10 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
-import { TOPIC_KEYS, TOPICS } from "@/constants/topics";
+import { TopicKeys, TOPICS } from "@/constants/topics";
 import { TOPICS_BY_WEEKS } from "./InfoBoxMocks";
-
-type TopicKeys = keyof typeof TOPIC_KEYS;
 
 type InfoBoxProps = {
   topic: TopicKeys;
@@ -30,7 +28,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ week, topic }) => {
   }, [week, topic]);
 
   return (
-    <Box>
+    <Box sx={{ flex: 1 }}>
       <Typography variant="h6" sx={{ marginTop: 3 }}>
         {title}
       </Typography>

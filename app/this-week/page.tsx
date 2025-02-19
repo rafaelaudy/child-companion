@@ -1,32 +1,23 @@
-// components/ThisWeek.js
 import React from "react";
-import { Box, Typography, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 import InfoBox from "@/components/data-visualization/InfoBox";
 import InfoRow from "@/components/data-visualization/InfoRow";
-import { TOPIC_KEYS } from "@/constants/topics";
+import { TopicKeys } from "@/constants/topics";
+import ChildHeader from "@/components/child/ChildHeader";
 
 const ThisWeek = () => {
   return (
     <Box sx={{ padding: 3 }}>
-      <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
-        <Box sx={{ flex: 1 }}>
-          <Typography variant="h6">Name of the Child</Typography>
-          <Typography variant="body1">John Doe</Typography>
-        </Box>
-        <Box sx={{ flex: 1 }}>
-          <Typography variant="h6">Date of Birth</Typography>
-          <Typography variant="body1">January 1, 2020</Typography>
-        </Box>
-      </Stack>
+      <ChildHeader />
 
       <InfoRow>
-        <InfoBox topic={TOPIC_KEYS.DEVELOPING} />
-        <InfoBox topic={TOPIC_KEYS.ENJOYING} />
+        <InfoBox topic={TopicKeys.Developing} />
+        <InfoBox topic={TopicKeys.Enjoying} />
       </InfoRow>
 
       <InfoRow>
-        <InfoBox topic={TOPIC_KEYS.ACTIVITIES} />
-        <InfoBox topic={TOPIC_KEYS.TEACH} />
+        <InfoBox topic={TopicKeys.Activities} />
+        <InfoBox topic={TopicKeys.Teach} />
       </InfoRow>
     </Box>
   );

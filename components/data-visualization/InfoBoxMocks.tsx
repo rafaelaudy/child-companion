@@ -1,7 +1,7 @@
-import { TOPIC_KEYS } from "@/constants/topics";
+import { TopicKeys } from "@/constants/topics";
 
 export const TOPICS_BY_WEEKS = {
-  [TOPIC_KEYS.DEVELOPING]: {
+  [TopicKeys.Developing]: {
     response: `<ul>
     <li><strong>Increased Head Control</strong> – Your baby is getting stronger and may hold her head steady for longer periods while on her tummy or when supported in a sitting position.</li>
     <li><strong>More Coordinated Movements</strong> – She may start to bring her hands together, bat at objects, and reach for toys with more intention.</li>
@@ -14,7 +14,7 @@ export const TOPICS_BY_WEEKS = {
 </ul>`,
     dateObtained: `TODO`,
   },
-  [TOPIC_KEYS.ENJOYING]: {
+  [TopicKeys.Enjoying]: {
     response: `<ul>
     <li><strong>Increased Social Smiles:</strong> Your baby is smiling more in response to faces and voices, showing growing social awareness.</li>
     <li><strong>More Vocalization:</strong> Expect more cooing, gurgling, and even some squeals as your baby experiments with sounds.</li>
@@ -30,7 +30,7 @@ export const TOPICS_BY_WEEKS = {
 `,
     dateObtained: `TODO`,
   },
-  [TOPIC_KEYS.ACTIVITIES]: {
+  [TopicKeys.Activities]: {
     response: `<ul>
   <li><strong>Tummy time:</strong> Encourage your baby to spend time on their stomach to build neck and shoulder strength. You can place toys in front of them to encourage reaching and looking around.</li>
   <li><strong>Talking and singing:</strong> Talk to your baby or sing simple songs. Your baby enjoys hearing your voice and this helps with language development.</li>
@@ -44,7 +44,7 @@ export const TOPICS_BY_WEEKS = {
 `,
     dateObtained: `TODO`,
   },
-  [TOPIC_KEYS.TEACH]: {
+  [TopicKeys.Teach]: {
     response: `<ul>
   <li><strong>Visual Tracking</strong>: Encourage your baby to follow objects with their eyes by moving a toy or your finger slowly across their line of sight.</li>
   <li><strong>Social Smiling</strong>: Continue to engage with your baby using gentle, exaggerated facial expressions to encourage social smiling and eye contact.</li>
