@@ -57,4 +57,34 @@ export const TOPICS_BY_WEEKS = {
 `,
     dateObtained: `TODO`,
   },
+  [TopicKeys.LookingForwardsTo]: {
+    response: `<ul>
+    <li><strong>Improved Head Control:</strong> Your baby will be able to hold their head steadier while sitting with support.</li>
+    <li><strong>More Expressive Smiles:</strong> Expect more frequent and engaging social smiles in response to interactions.</li>
+    <li><strong>Increased Hand-Eye Coordination:</strong> They will start reaching for objects with more accuracy.</li>
+    <li><strong>Exploring with Hands and Mouth:</strong> Your baby may start putting their hands and toys into their mouth.</li>
+    <li><strong>Recognizing Familiar Faces:</strong> They will show excitement and recognition when seeing familiar people.</li>
+    <li><strong>Attempting to Roll Over:</strong> Some babies begin rolling from tummy to back or side to back.</li>
+    <li><strong>More Vocalization:</strong> Expect new coos, squeals, and different sounds as they experiment with their voice.</li>
+    <li><strong>Longer Awake Periods:</strong> They will stay awake for longer stretches, engaging more with their surroundings.</li>
+    <li><strong>Following Moving Objects:</strong> Their eyes will track moving objects more smoothly.</li>
+    <li><strong>Early Signs of Teething:</strong> Some babies may start drooling more and chewing on their hands.</li>
+</ul>
+`,
+    dateObtained: `TODO`,
+  },
+  [TopicKeys.StopTo]: {
+    response: `<ul>
+    <li><strong>Peekaboo and Simple Games:</strong> By age 4, children may find peekaboo and very simple games less exciting as their cognitive skills advance.</li>
+    <li><strong>Soft Infant Toys:</strong> Plush rattles and soft chew toys may no longer hold their interest as they seek more interactive and complex playthings.</li>
+    <li><strong>Basic Tummy Time:</strong> Floor-based tummy time becomes obsolete as they gain full mobility and prefer more active play.</li>
+    <li><strong>Being Restrained for Long:</strong> Infants enjoy being swaddled or in baby carriers, but by 4 years, they crave more freedom to move.</li>
+    <li><strong>Simple Repetitive Sounds:</strong> Basic cooing and rattling sounds that once fascinated them may now seem boring compared to engaging conversations and music.</li>
+    <li><strong>Milk as the Only Food:</strong> At 4 years old, they will have developed a taste for varied solid foods, making an all-milk diet unappealing.</li>
+    <li><strong>Crib Sleeping:</strong> Many children transition from cribs to toddler beds as they grow more independent.</li>
+    <li><strong>Passive Watching:</strong> At 15 weeks, they may stare at moving objects, but by 4, they prefer interactive play over passive observation.</li>
+    <li><strong>Being Carried Constantly:</strong> While infants love being held, older children prefer running and playing on their own.</li>
+</ul>`,
+    dateObtained: `TODO`,
+  },
 };

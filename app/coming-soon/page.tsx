@@ -3,7 +3,6 @@ import { Box } from "@mui/material";
 import InfoBox from "@/components/data-visualization/InfoBox";
 import InfoRow from "@/components/data-visualization/InfoRow";
 import { TopicKeys } from "@/constants/topics";
-
 import ChildHeader from "./ChildHeader";
 
 const ThisWeek = () => {
@@ -12,13 +11,8 @@ const ThisWeek = () => {
       <ChildHeader />
 
       <InfoRow>
-        <InfoBox topic={TopicKeys.Developing} />
-        <InfoBox topic={TopicKeys.Enjoying} />
-      </InfoRow>
-
-      <InfoRow>
-        <InfoBox topic={TopicKeys.Activities} />
-        <InfoBox topic={TopicKeys.Teach} />
+        <InfoBox topic={TopicKeys.LookingForwardsTo} />
+        <InfoBox topic={TopicKeys.StopTo} />
       </InfoRow>
     </Box>
   );
