@@ -4,6 +4,10 @@ type AgeDescriptionProps = {
   date: Dayjs | null;
 };
 
+function pluralize(count: number, singular: string, plural?: string): string {
+  return count === 1 ? singular : plural || `${singular}s`;
+}
+
 export default function AgeDescription({ date }: AgeDescriptionProps) {
   const calculateWeeksOld = (date: Dayjs): number => {
     const today = dayjs();
@@ -18,19 +22,24 @@ export default function AgeDescription({ date }: AgeDescriptionProps) {
 
   if (!date) return "";
 
-  const weeks = calculateWeeksOld(date);
   const months = calculateMonthsOld(date);
+
+  if (months < 6) {
+    const weeks = calculateWeeksOld(date);
+    const weeksLabel = pluralize(weeks, "week");
+    return `and is ${weeks} ${weeksLabel} old`;
+  } else if (months < 12) {
+    const monthsLabel = pluralize(months, "month");
+    return `and is ${months} ${monthsLabel} old`;
+  }
+
   const years = Math.floor(months / 12);
   const remainingMonths = months % 12;
 
-  const weeksLabel = weeks > 1 ? "weeks" : "week";
-  const monthsLabel = remainingMonths > 1 ? "months" : "month";
-  const yearsLabel = years > 1 ? "years" : "year";
+  const monthsLabel = pluralize(remainingMonths, "month");
+  const yearsLabel = pluralize(years, "year");
 
-  const formattedWeeks = `${weeks} ${weeksLabel}`;
   const formattedMonths = `${remainingMonths.toFixed(1)} ${monthsLabel}`;
 
-  return years >= 1
-    ? `and is ${formattedWeeks} or ${years} ${yearsLabel} and ${formattedMonths} old`
-    : `and is ${formattedWeeks} or ${formattedMonths} old`;
+  return `and is ${years} ${yearsLabel} and ${formattedMonths} old`;
 }
