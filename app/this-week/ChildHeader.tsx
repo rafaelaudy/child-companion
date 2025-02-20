@@ -1,16 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import { TextField, Typography, Box } from "@mui/material";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { Dayjs } from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import AgeDescription from "@/components/child/AgeDescription";
+import useChildStore from "@/store/childStore";
 
 export default function BabyWeeksTracker() {
-  const [name, setName] = useState<string>("");
-  const [birthDate, setBirthDate] = useState<Dayjs | null>(null);
+  const { name, dateOfBirth, setName, setDateOfBirth } = useChildStore();
+  const parsedDateOfBirth = dateOfBirth ? dayjs(dateOfBirth) : null;
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -33,8 +33,10 @@ export default function BabyWeeksTracker() {
         <DatePicker
           views={["year", "month", "day"]}
           format="DD/MM/YY"
-          value={birthDate}
-          onChange={(newValue: Dayjs | null) => setBirthDate(newValue)}
+          value={parsedDateOfBirth}
+          onChange={(newValue: Dayjs | null) =>
+            setDateOfBirth(newValue?.toString() || null)
+          }
           slotProps={{
             textField: {
               variant: "standard",
@@ -44,7 +46,7 @@ export default function BabyWeeksTracker() {
           }}
         />
         <Typography>
-          <AgeDescription date={birthDate} />.
+          <AgeDescription date={parsedDateOfBirth} />.
         </Typography>
       </Box>
     </LocalizationProvider>
