@@ -34,11 +34,12 @@ export default function NameAndBirthday() {
           views={["year", "month", "day"]}
           format="DD/MM/YY"
           value={parsedDateOfBirth}
-          onChange={(newValue: Dayjs | null) =>
+          onAccept={(newValue: Dayjs | null) =>
             setDateOfBirth(newValue?.toString() || null)
           }
           minDate={dayjs().subtract(18, "year")}
-          maxDate={dayjs().add(0, "day")}
+          disableFuture
+          disableHighlightToday
           slotProps={{
             textField: {
               variant: "standard",

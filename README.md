@@ -22,6 +22,9 @@ The Child Companion App is a web application designed to help parents and caregi
 
 Coding:
 
+- [ ] Setup monorepo
+- [ ] Create express server to expose domain code in a Graphql layer
+- [ ] Make state reflect in the URL, URL should override state
 - [ ] Build API to get data from server and move mocks
 - [ ] Add database and move mocks there
 - [ ] Connect to Open AI APIs
@@ -46,7 +49,7 @@ Mobile:
 ### Low priority
 
 - [ ] Add an about page and a donate button
-- [ ] Move server to a microservice in Python
+- [ ] Create python microserver to deal with the AI code
 - [ ] Scope and build user menu
 
 ---
