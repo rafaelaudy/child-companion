@@ -1,40 +1,73 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import {
-  Box,
+  TextField,
+  MenuItem,
   Typography,
-  Stack,
+  Box,
   Select,
   FormControl,
-  MenuItem,
-  SelectChangeEvent,
 } from "@mui/material";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { Dayjs } from "dayjs";
+import AgeDescription from "@/components/child/AgeDescription";
 
-const ChildHeader = () => {
-  const [topic, setTopic] = useState("1");
-  const [nextWeeks, setNextWeeks] = useState("4");
-
-  const handleWeekChange = (event: SelectChangeEvent) => {
-    setNextWeeks(event.target.value as string);
-  };
-
-  const handleTopicChange = (event: SelectChangeEvent) => {
-    setTopic(event.target.value as string);
-  };
+export default function BabyWeeksTracker() {
+  const [name, setName] = useState<string>("");
+  const [birthDate, setBirthDate] = useState<Dayjs | null>(null);
+  const [topic, setTopic] = useState<string>("");
+  const [extraWeeks, setExtraWeeks] = useState<number>(1);
 
   return (
-    <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
-      <Box sx={{ flex: 1 }}>
-        <Typography variant="h6">Name of the Child</Typography>
-        <Typography variant="body1">Luca</Typography>
-      </Box>
-      <Box sx={{ flex: 1 }}>
-        <Typography variant="h6">
-          What would you like to try in the next X weeks?
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Box display="flex" alignItems="center" gap={1} flexWrap="wrap">
+        <TextField
+          placeholder="Child's Name"
+          variant="standard"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          slotProps={{
+            input: {
+              style: {
+                minWidth: "100px",
+                width: `${name.length * 8.5}px`,
+              },
+            },
+          }}
+        />
+        <Typography>was born on </Typography>
+        <DatePicker
+          views={["year", "month", "day"]}
+          format="DD/MM/YY"
+          value={birthDate}
+          onChange={(newValue: Dayjs | null) => setBirthDate(newValue)}
+          slotProps={{
+            textField: {
+              variant: "standard",
+              placeholder: "Birth Date",
+              sx: { width: "120px" },
+            },
+          }}
+        />
+        <Typography>
+          <AgeDescription date={birthDate} />. Would you like to know more about
         </Typography>
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-          <Select value={topic} label="topic" onChange={handleTopicChange}>
+
+        <FormControl variant="standard">
+          <Select
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+            label="Topic to Explore"
+            displayEmpty
+          >
+            <MenuItem value="">
+              <Typography sx={{ color: "text.disabled" }}>
+                Topic to Explore
+              </Typography>
+            </MenuItem>
             <MenuItem value={1}>Drawing</MenuItem>
             <MenuItem value={2}>Play ball</MenuItem>
             <MenuItem value={3}>Count</MenuItem>
@@ -42,22 +75,24 @@ const ChildHeader = () => {
             <MenuItem value={8}>Potty train</MenuItem>
           </Select>
         </FormControl>
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+
+        <Typography>in the next</Typography>
+
+        <FormControl variant="standard">
           <Select
-            value={nextWeeks}
-            label="nextWeeks"
-            onChange={handleWeekChange}
+            value={extraWeeks}
+            onChange={(e) => setExtraWeeks(Number(e.target.value))}
+            label="Weeks"
           >
-            <MenuItem value={1}>1</MenuItem>
-            <MenuItem value={2}>2</MenuItem>
-            <MenuItem value={3}>3</MenuItem>
-            <MenuItem value={4}>4</MenuItem>
-            <MenuItem value={8}>8</MenuItem>
+            {[...Array(8).keys()].map((num) => (
+              <MenuItem key={num + 1} value={num + 1}>
+                {num + 1}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
+        <Typography>week{extraWeeks > 1 ? "s" : ""}:</Typography>
       </Box>
-    </Stack>
+    </LocalizationProvider>
   );
-};
-
-export default ChildHeader;
+}

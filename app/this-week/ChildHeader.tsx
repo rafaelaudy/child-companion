@@ -1,19 +1,52 @@
-import React from "react";
-import { Box, Typography, Stack } from "@mui/material";
+"use client";
 
-const ChildHeader = () => {
+import { useState } from "react";
+import { TextField, Typography, Box } from "@mui/material";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { Dayjs } from "dayjs";
+import AgeDescription from "@/components/child/AgeDescription";
+
+export default function BabyWeeksTracker() {
+  const [name, setName] = useState<string>("");
+  const [birthDate, setBirthDate] = useState<Dayjs | null>(null);
+
   return (
-    <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
-      <Box sx={{ flex: 1 }}>
-        <Typography variant="h6">Name of the Child</Typography>
-        <Typography variant="body1">Luca</Typography>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Box display="flex" alignItems="center" gap={1} flexWrap="wrap">
+        <TextField
+          placeholder="Child's Name"
+          variant="standard"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          slotProps={{
+            input: {
+              style: {
+                minWidth: "100px",
+                width: `${name.length * 8.5}px`,
+              },
+            },
+          }}
+        />
+        <Typography>was born on </Typography>
+        <DatePicker
+          views={["year", "month", "day"]}
+          format="DD/MM/YY"
+          value={birthDate}
+          onChange={(newValue: Dayjs | null) => setBirthDate(newValue)}
+          slotProps={{
+            textField: {
+              variant: "standard",
+              placeholder: "Birth Date",
+              sx: { width: "120px" },
+            },
+          }}
+        />
+        <Typography>
+          <AgeDescription date={birthDate} />.
+        </Typography>
       </Box>
-      <Box sx={{ flex: 1 }}>
-        <Typography variant="h6">Date of Birth / Weeks</Typography>
-        <Typography variant="body1">January 1, 2020 / 15 Weeks</Typography>
-      </Box>
-    </Stack>
+    </LocalizationProvider>
   );
-};
-
-export default ChildHeader;
+}
