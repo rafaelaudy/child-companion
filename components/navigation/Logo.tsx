@@ -19,7 +19,6 @@ export default function Logo({ isMobile }: { isMobile: boolean }) {
         variant={isMobile ? "h5" : "h6"}
         noWrap
         component="a"
-        href="#app-bar-with-responsive-menu"
         sx={{
           mr: 2,
           display: {

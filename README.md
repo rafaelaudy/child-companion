@@ -45,6 +45,7 @@ Mobile:
 
 ### Low priority
 
+- [ ] Add an about page and a donate button
 - [ ] Move server to a microservice in Python
 - [ ] Scope and build user menu
 
