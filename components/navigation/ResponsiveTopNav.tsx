@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Container } from "@mui/material";
-import UserMenu from "./UserMenu";
+// import UserMenu from "./UserMenu";
 import Logo from "./Logo";
 import MobileTopNav from "./MobileTopNav";
 import DesktopTopNav from "./DesktopTopNav";
@@ -15,7 +15,7 @@ export default function ResponsiveAppBar() {
 
           <DesktopTopNav />
 
-          <UserMenu />
+          {/* <UserMenu /> */}
         </Toolbar>
       </Container>
     </AppBar>

@@ -16,6 +16,38 @@ The Child Companion App is a web application designed to help parents and caregi
    ```
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## To do
+
+### High Priority:
+
+Coding:
+
+- [ ] Build API to get data from server and move mocks
+- [ ] Add database and move mocks there
+- [ ] Connect to Open AI APIs
+- [ ] Build mechanism to save data in database and invalidate cache after a month
+
+Infra:
+
+- [ ] Add terraform
+- [ ] Scope services and deploy to AWS
+- [ ] Move deploy pipeline from Vercel
+
+Mobile:
+
+- [ ] Deploy to Mobile stores with an app wrapper
+
+### Medium Priority
+
+- [ ] Add loading state components
+- [ ] Add unit tests & functional tests
+- [ ] Improve layout
+
+### Low priority
+
+- [ ] Move server to a microservice in Python
+- [ ] Scope and build user menu
+
 ---
 
 Start tracking your child's development today and ensure they reach their full potential!
