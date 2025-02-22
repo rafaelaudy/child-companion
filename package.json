@@ -7,7 +7,7 @@
     "dev": "pnpm recursive run dev",
     "build": "pnpm recursive run build",
     "start": "pnpm recursive run start",
-    "lint": "pnpm recursive run lintv"
+    "lint": "pnpm recursive run lint"
   },
   "author": "",
   "license": "ISC"

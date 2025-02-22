@@ -1,0 +1,3 @@
+type Query {
+  getPrompt(topic: String, weeks: Int, nextWeeks: Int): String
+}
