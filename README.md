@@ -14,7 +14,11 @@ The Child Companion App is a web application designed to help parents and caregi
    ```sh
    pnpm run dev
    ```
-3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. Run postgress by:
+   ```sh
+   docker compose up -d
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## To do
 

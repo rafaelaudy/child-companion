@@ -36,20 +36,19 @@ const getPromptResponse = async (
   weeks: number,
   nextWeeks: number,
 ): Promise<string> => {
-  // const oneMonthAgo = moment().subtract(1, 'months').toDate();
+  const oneMonthAgo = moment().subtract(1, 'months').toDate();
 
-  // const existingPrompt = await Prompt.findOne({
-  //   where: { topic, weeks, nextWeeks, createdAt: { [Op.gt]: oneMonthAgo } },
-  // });
+  const existingPrompt = await Prompt.findOne({
+    where: { topic, weeks, nextWeeks, createdAt: { [Op.gt]: oneMonthAgo } },
+  });
 
-  // if (existingPrompt) return existingPrompt.response;
+  if (existingPrompt) return existingPrompt.response;
 
   // const generatedText = await fetchOpenAIResponse(topic, weeks, nextWeeks);
   // await Prompt.create({ topic, weeks, nextWeeks, response: generatedText });
 
   // return generatedText;
-  console.log('lalala');
-  return Promise.resolve('lalala');
+  return 'lala';
 };
 
 export { getPromptResponse };
