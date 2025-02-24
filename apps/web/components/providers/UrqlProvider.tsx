@@ -17,7 +17,7 @@ const UrqlClientProvider: React.FC<{
       isClient: typeof window !== "undefined",
     });
     const client = createClient({
-      url: "http://localhost:4000/graphql",
+      url: process.env.NEXT_PUBLIC_API_URL || "",
       exchanges: [cacheExchange, ssr, fetchExchange],
       suspense: true,
     });

@@ -21,7 +21,7 @@ const startServer = async () => {
   const resolvers = mergeResolvers([resolverPrompt]);
 
   const app = express();
-  app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+  app.use(cors({ origin: process.env.CLIENT_URL as string, credentials: true }));
   app.use('/graphql', express.json(), (req, res, next) => {
     const { query, variables } = req.body;
     console.log(`Operation: ${query}`);
