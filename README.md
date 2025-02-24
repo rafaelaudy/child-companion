@@ -10,15 +10,16 @@ The Child Companion App is a web application designed to help parents and caregi
    ```sh
    pnpm i
    ```
-2. Run the development server:
+2. Rename files called `renameToEnv` to `env`
+3. Run the development server:
    ```sh
    pnpm run dev
    ```
-3. Run postgress by:
+4. Run postgress by:
    ```sh
    docker compose up -d
    ```
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## To do
 
