@@ -4,31 +4,34 @@ import axios from 'axios';
 
 import Prompt from './model';
 
+import { TOPICS_BY_WEEKS } from './mocks';
+
 const fetchOpenAIResponse = async (
   topic: string,
   weeks: number,
   nextWeeks: number,
 ): Promise<string> => {
-  const response = await axios.post(
-    'https://api.openai.com/v1/chat/completions',
-    {
-      model: 'gpt-4',
-      messages: [
-        {
-          role: 'system',
-          content: `Generate a response for topic: "${topic}" over ${weeks} weeks and additional ${nextWeeks} weeks.`,
-        },
-      ],
-    },
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-    },
-  );
+  return TOPICS_BY_WEEKS[topic as keyof typeof TOPICS_BY_WEEKS];
+  // const response = await axios.post(
+  //   'https://api.openai.com/v1/chat/completions',
+  //   {
+  //     model: 'gpt-4',
+  //     messages: [
+  //       {
+  //         role: 'system',
+  //         content: `Generate a response for topic: "${topic}" over ${weeks} weeks and additional ${nextWeeks} weeks.`,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     headers: {
+  //       Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+  //       'Content-Type': 'application/json',
+  //     },
+  //   },
+  // );
 
-  return response.data.choices[0].message.content;
+  // return response.data.choices[0].message.content;
 };
 
 const getPromptResponse = async (
@@ -44,11 +47,10 @@ const getPromptResponse = async (
 
   if (existingPrompt) return existingPrompt.response;
 
-  // const generatedText = await fetchOpenAIResponse(topic, weeks, nextWeeks);
-  // await Prompt.create({ topic, weeks, nextWeeks, response: generatedText });
+  const generatedText = await fetchOpenAIResponse(topic, weeks, nextWeeks);
+  await Prompt.create({ topic, weeks, nextWeeks, response: generatedText });
 
-  // return generatedText;
-  return 'lala';
+  return generatedText;
 };
 
 export { getPromptResponse };

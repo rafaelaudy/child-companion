@@ -9,7 +9,7 @@ import AgeDescription from "@/components/child/AgeDescription";
 import useChildStore from "@/store/childStore";
 
 export default function NameAndBirthday() {
-  const { name, dateOfBirth, setName, setDateOfBirth } = useChildStore();
+  const { name, dateOfBirth, weeks, setName, setDateOfBirth } = useChildStore();
   const parsedDateOfBirth = dateOfBirth ? dayjs(dateOfBirth) : null;
 
   return (
@@ -50,7 +50,7 @@ export default function NameAndBirthday() {
         />
       </LocalizationProvider>
       <Typography variant="h6">
-        <AgeDescription date={parsedDateOfBirth} />.
+        <AgeDescription date={parsedDateOfBirth} weeks={weeks} />.
       </Typography>
     </>
   );

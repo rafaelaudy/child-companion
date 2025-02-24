@@ -9,6 +9,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
+import UrqlClientProvider from "@/components/providers/UrqlProvider";
 
 export const metadata: Metadata = {
   title: "Child Companion",
@@ -30,7 +31,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <CssBaseline />
           <ResponsiveTopNav />
-          {children}
+          <UrqlClientProvider>{children}</UrqlClientProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

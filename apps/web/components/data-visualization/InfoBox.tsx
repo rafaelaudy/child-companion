@@ -1,31 +1,33 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Box, Typography } from "@mui/material";
 import { TopicKeys, TOPICS } from "@/constants/topics";
-import { TOPICS_BY_WEEKS } from "./InfoBoxMocks";
+import { useQuery } from "@urql/next";
 
 type InfoBoxProps = {
   topic: TopicKeys;
-  week?: number;
+  weeks?: number | null;
+  nextWeeks?: number;
 };
 
-type InfoBoxState = {
-  title: string;
-  body: string;
-};
+const GET_PROMPT = `
+  query ($topic: String!, $weeks: Int, $nextWeeks: Int) {
+    getPrompt(topic: $topic, weeks: $weeks, nextWeeks: $nextWeeks)
+  }
+`;
 
-const InfoBox: React.FC<InfoBoxProps> = ({ week, topic }) => {
-  const [{ title, body }, setInfoBoxState] = useState<InfoBoxState>({
-    title: "",
-    body: "",
+const InfoBox: React.FC<InfoBoxProps> = ({ topic, weeks, nextWeeks }) => {
+  const title = TOPICS[topic].title;
+
+  const [{ data }] = useQuery({
+    query: GET_PROMPT,
+    variables: {
+      topic,
+      weeks,
+      nextWeeks,
+    },
   });
-  useEffect(() => {
-    const title = TOPICS[topic].title;
-    const body = TOPICS_BY_WEEKS[topic].response;
-
-    setInfoBoxState({ title, body });
-  }, [week, topic]);
 
   return (
     <Box sx={{ flex: 1 }}>
@@ -44,7 +46,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ week, topic }) => {
           overflow: "auto",
         }}
       >
-        <div dangerouslySetInnerHTML={{ __html: body }} />
+        <div dangerouslySetInnerHTML={{ __html: data.getPrompt }} />
       </Box>
     </Box>
   );

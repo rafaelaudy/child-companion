@@ -59,6 +59,8 @@ Mobile:
 
 ### Tech debt
 
+- [ ] Check exchanges in urql
+- [ ] Review and optimize server rendering
 - [ ] Reuse linting configs across projects
 - [ ] ts configs across projects
 - [ ] Add unit tests & functional tests

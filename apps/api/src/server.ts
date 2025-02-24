@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import cors from 'cors';
 import { createHandler } from 'graphql-http/lib/use/express';
 import { loadSchemaSync } from '@graphql-tools/load';
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
@@ -20,6 +21,13 @@ const startServer = async () => {
   const resolvers = mergeResolvers([resolverPrompt]);
 
   const app = express();
+  app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+  app.use('/graphql', express.json(), (req, res, next) => {
+    const { query, variables } = req.body;
+    console.log(`Operation: ${query}`);
+    console.log(`Variables:`, variables || {});
+    next();
+  });
 
   await sequelize.sync();
 

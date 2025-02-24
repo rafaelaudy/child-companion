@@ -1,12 +1,12 @@
 export enum TopicKeys {
-  Developing,
-  Enjoying,
-  Activities,
-  Teach,
-  Drawing,
-  Future_Developing,
-  Future_StopTo,
-  Future_Drawing,
+  Developing = "Developing",
+  Enjoying = "Enjoying",
+  Activities = "Activities",
+  Teach = "Teach",
+  Drawing = "Drawing",
+  Future_Developing = "Future_Developing",
+  Future_StopTo = "Future_StopTo",
+  Future_Drawing = "Future_Drawing",
 }
 
 export const TOPICS = {

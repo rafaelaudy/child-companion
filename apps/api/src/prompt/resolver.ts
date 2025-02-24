@@ -3,8 +3,8 @@ import { getPromptResponse } from './service';
 export const resolverPrompt = {
   getPrompt: async ({
     topic,
-    weeks,
-    nextWeeks,
+    weeks = 0,
+    nextWeeks = 0,
   }: {
     topic: string;
     weeks: number;

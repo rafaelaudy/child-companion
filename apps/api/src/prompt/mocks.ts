@@ -1,8 +1,5 @@
-import { TopicKeys } from "@/constants/topics";
-
 export const TOPICS_BY_WEEKS = {
-  [TopicKeys.Developing]: {
-    response: `<ul>
+  Developing: `<ul>
     <li><strong>Increased Head Control</strong> – Your baby is getting stronger and may hold her head steady for longer periods while on her tummy or when supported in a sitting position.</li>
     <li><strong>More Coordinated Movements</strong> – She may start to bring her hands together, bat at objects, and reach for toys with more intention.</li>
     <li><strong>Improved Vision</strong> – She can now track objects more smoothly and might start following moving objects with her eyes more effectively.</li>
@@ -12,10 +9,7 @@ export const TOPICS_BY_WEEKS = {
     <li><strong>Growing Social Skills</strong> – Smiles and giggles are becoming more frequent as she starts to enjoy interactions with people around her.</li>
     <li><strong>Developing Sleep Patterns</strong> – Sleep may start to become more predictable, with longer stretches at night and more regular naps.</li>
 </ul>`,
-    dateObtained: `TODO`,
-  },
-  [TopicKeys.Enjoying]: {
-    response: `<ul>
+  Enjoying: `<ul>
     <li><strong>Increased Social Smiles:</strong> Your baby is smiling more in response to faces and voices, showing growing social awareness.</li>
     <li><strong>More Vocalization:</strong> Expect more cooing, gurgling, and even some squeals as your baby experiments with sounds.</li>
     <li><strong>Better Hand Coordination:</strong> Your little one is reaching for and grasping objects with more control.</li>
@@ -28,10 +22,7 @@ export const TOPICS_BY_WEEKS = {
     <li><strong>Beginning to Show Preferences:</strong> Your baby might express likes and dislikes through facial expressions and sounds.</li>
 </ul>
 `,
-    dateObtained: `TODO`,
-  },
-  [TopicKeys.Activities]: {
-    response: `<ul>
+  Activities: `<ul>
   <li><strong>Tummy time:</strong> Encourage your baby to spend time on their stomach to build neck and shoulder strength. You can place toys in front of them to encourage reaching and looking around.</li>
   <li><strong>Talking and singing:</strong> Talk to your baby or sing simple songs. Your baby enjoys hearing your voice and this helps with language development.</li>
   <li><strong>Gentle tickles:</strong> Lightly tickle their feet, tummy, or hands to elicit smiles and giggles. It's a great bonding activity.</li>
@@ -42,10 +33,7 @@ export const TOPICS_BY_WEEKS = {
   <li><strong>Peek-a-boo:</strong> Play peek-a-boo by covering your face with your hands or a cloth and revealing yourself. Babies at this age start to enjoy the surprise element.</li>
 </ul>
 `,
-    dateObtained: `TODO`,
-  },
-  [TopicKeys.Teach]: {
-    response: `<ul>
+  Teach: `<ul>
   <li><strong>Visual Tracking</strong>: Encourage your baby to follow objects with their eyes by moving a toy or your finger slowly across their line of sight.</li>
   <li><strong>Social Smiling</strong>: Continue to engage with your baby using gentle, exaggerated facial expressions to encourage social smiling and eye contact.</li>
   <li><strong>Grasping Objects</strong>: Place toys or soft objects in her hands to help her practice gripping. At this stage, she may start to reach for and hold things.</li>
@@ -55,10 +43,7 @@ export const TOPICS_BY_WEEKS = {
   <li><strong>Eye-Hand Coordination</strong>: Hold toys just within reach to prompt her to focus and coordinate her eyes and hands together to interact with objects.</li>
 </ul>
 `,
-    dateObtained: `TODO`,
-  },
-  [TopicKeys.Drawing]: {
-    response: `<ul>
+  Drawing: `<ul>
     <li><strong>High-Contrast Doodles</strong>: Use black and white or bold colors on large paper to capture your baby's attention.</li>
     <li><strong>Finger Painting</strong>: Use non-toxic, edible paints and let your child explore textures with their hands.</li>
     <li><strong>Hand and Foot Prints</strong>: Press their hands and feet onto paper using safe, washable ink or paint.</li>
@@ -69,10 +54,7 @@ export const TOPICS_BY_WEEKS = {
     <li><strong>Mirror Drawing</strong>: Let them observe themselves while you draw on a mirror with baby-safe markers.</li>
 </ul>
 `,
-    dateObtained: `TODO`,
-  },
-  [TopicKeys.Future_Developing]: {
-    response: `<ul>
+  Future_Developing: `<ul>
     <li><strong>Improved Head Control:</strong> Your baby will be able to hold their head steadier while sitting with support.</li>
     <li><strong>More Expressive Smiles:</strong> Expect more frequent and engaging social smiles in response to interactions.</li>
     <li><strong>Increased Hand-Eye Coordination:</strong> They will start reaching for objects with more accuracy.</li>
@@ -85,10 +67,7 @@ export const TOPICS_BY_WEEKS = {
     <li><strong>Early Signs of Teething:</strong> Some babies may start drooling more and chewing on their hands.</li>
 </ul>
 `,
-    dateObtained: `TODO`,
-  },
-  [TopicKeys.Future_StopTo]: {
-    response: `<ul>
+  Future_StopTo: `<ul>
     <li><strong>Peekaboo and Simple Games:</strong> By age 4, children may find peekaboo and very simple games less exciting as their cognitive skills advance.</li>
     <li><strong>Soft Infant Toys:</strong> Plush rattles and soft chew toys may no longer hold their interest as they seek more interactive and complex playthings.</li>
     <li><strong>Basic Tummy Time:</strong> Floor-based tummy time becomes obsolete as they gain full mobility and prefer more active play.</li>
@@ -99,10 +78,7 @@ export const TOPICS_BY_WEEKS = {
     <li><strong>Passive Watching:</strong> At 15 weeks, they may stare at moving objects, but by 4, they prefer interactive play over passive observation.</li>
     <li><strong>Being Carried Constantly:</strong> While infants love being held, older children prefer running and playing on their own.</li>
 </ul>`,
-    dateObtained: `TODO`,
-  },
-  [TopicKeys.Future_Drawing]: {
-    response: `<ul>
+  Future_Drawing: `<ul>
     <li><strong>Choose Safe Materials</strong> - Use non-toxic, baby-safe crayons or finger paints.</li>
     <li><strong>Large Paper Surface</strong> - Provide a big sheet of paper to encourage free movement.</li>
     <li><strong>Supervised Play</strong> - Always watch to prevent accidental ingestion.</li>
@@ -112,6 +88,4 @@ export const TOPICS_BY_WEEKS = {
     <li><strong>Keep Sessions Short</strong> - Five-minute sessions to match short attention spans.</li>
     <li><strong>Make It Fun</strong> - Praise effort, not outcome, to build confidence.</li>
 </ul>`,
-    dateObtained: `TODO`,
-  },
 };

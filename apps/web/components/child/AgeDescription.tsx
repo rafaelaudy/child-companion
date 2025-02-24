@@ -2,30 +2,25 @@ import dayjs, { Dayjs } from "dayjs";
 
 type AgeDescriptionProps = {
   date: Dayjs | null;
+  weeks: number | null;
 };
 
 function pluralize(count: number, singular: string, plural?: string): string {
   return count === 1 ? singular : plural || `${singular}s`;
 }
 
-export default function AgeDescription({ date }: AgeDescriptionProps) {
-  const calculateWeeksOld = (date: Dayjs): number => {
-    const today = dayjs();
-    return today.diff(date, "week");
-  };
-
+export default function AgeDescription({ date, weeks }: AgeDescriptionProps) {
   const calculateMonthsOld = (date: Dayjs): number => {
     const today = dayjs();
     const monthsDiff = today.diff(date, "month", true);
     return Math.round(monthsDiff * 10) / 10;
   };
 
-  if (!date) return "";
+  if (!date || !weeks) return "";
 
   const months = calculateMonthsOld(date);
 
   if (months < 6) {
-    const weeks = calculateWeeksOld(date);
     const weeksLabel = pluralize(weeks, "week");
     return `and is ${weeks} ${weeksLabel} old`;
   } else if (months < 12) {
