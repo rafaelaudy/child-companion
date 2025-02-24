@@ -46,7 +46,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ topic, weeks, nextWeeks }) => {
           overflow: "auto",
         }}
       >
-        <div dangerouslySetInnerHTML={{ __html: data.getPrompt }} />
+        <div dangerouslySetInnerHTML={{ __html: data?.getPrompt || "" }} />
       </Box>
     </Box>
   );
