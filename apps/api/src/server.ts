@@ -39,8 +39,8 @@ const startServer = async () => {
     }),
   );
 
-  app.listen(4000, () => {
-    console.log(`🚀 Server ready at http://localhost:4000/graphql`);
+  app.listen(process.env.PORT, () => {
+    console.log(`🚀 Server ready at http://localhost:${process.env.PORT}/graphql`);
   });
 };
 
