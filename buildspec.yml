@@ -1,0 +1,58 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_REGION: "us-east-1"
+    ECR_REPO: "child-companion-api" # Change to your AWS ECR repo name
+    AMPLIFY_APP_ID: "your-amplify-app-id" # Replace with your Amplify App ID
+    NODE_ENV: "production"
+  secrets-manager:
+    DATABASE_URL: "your-secrets-manager-key"
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: latest
+    commands:
+      - echo "Installing pnpm and Amplify CLI..."
+      - corepack enable
+      - corepack prepare pnpm@latest --activate
+      - npm install -g @aws-amplify/cli
+      - echo "Using pnpm version:"
+      - pnpm --version
+      - echo "Using Amplify CLI version:"
+      - amplify --version
+      - echo "Installing dependencies..."
+      - pnpm install --no-frozen-lockfile
+
+  pre_build:
+    commands:
+      - echo "Running tests..."
+      - pnpm --filter=apps/api test
+      - pnpm --filter=apps/web test
+
+  build:
+    commands:
+      - echo "Building Next.js Web App..."
+      - pnpm --filter=apps/web build
+
+      - echo "Building Express API Docker Image..."
+      - cd apps/api
+      - docker build -t $ECR_REPO .
+      - cd ../..
+
+  post_build:
+    commands:
+      - echo "Pushing API Docker image to ECR..."
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+      - docker tag $ECR_REPO:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO:latest
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO:latest
+      - echo "API Docker image pushed to ECR."
+
+      - echo "Triggering AWS Amplify deployment for Next.js..."
+      - aws amplify start-job --app-id $AMPLIFY_APP_ID --branch-name main --job-type RELEASE
+      - echo "Amplify deployment triggered."
+
+artifacts:
+  files:
+    - "**/*"
