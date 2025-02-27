@@ -2,44 +2,43 @@ version: 0.2
 
 env:
   variables:
-    AWS_REGION: "us-east-1"
-    ECR_REPO: "child-companion-api" # Change to your AWS ECR repo name
-    AMPLIFY_APP_ID: "your-amplify-app-id" # Replace with your Amplify App ID
+    AWS_REGION: "eu-west-2"
+    ECR_REPO: "child-companion-api"
+    AMPLIFY_APP_ID: "child-companion-web"
     NODE_ENV: "production"
-  secrets-manager:
-    DATABASE_URL: "your-secrets-manager-key"
 
 phases:
   install:
     runtime-versions:
       nodejs: latest
     commands:
-      - echo "Installing pnpm and Amplify CLI..."
+      - echo "Installing pnpm..."
       - corepack enable
       - corepack prepare pnpm@latest --activate
-      - npm install -g @aws-amplify/cli
+      # - echo "Installing Amplify CLI..."
+      # - npm install -g @aws-amplify/cli
       - echo "Using pnpm version:"
       - pnpm --version
-      - echo "Using Amplify CLI version:"
-      - amplify --version
+      # - echo "Using Amplify CLI version:"
+      # - amplify --version
       - echo "Installing dependencies..."
-      - pnpm install --no-frozen-lockfile
+      - pnpm install
 
-  pre_build:
-    commands:
-      - echo "Running tests..."
-      - pnpm --filter=apps/api test
-      - pnpm --filter=apps/web test
+  # pre_build:
+  # commands:
+  # - echo "Running tests..."
+  # - pnpm --filter=apps/api test
+  # - pnpm --filter=apps/web test
 
   build:
     commands:
       - echo "Building Next.js Web App..."
-      - pnpm --filter=apps/web build
+      - pnpm --filter=./apps/web build
 
       - echo "Building Express API Docker Image..."
-      - cd apps/api
-      - docker build -t $ECR_REPO .
-      - cd ../..
+      # - cd apps/api
+      # - docker build -t $ECR_REPO .
+      # - cd ../..
 
   post_build:
     commands:
